@@ -7,6 +7,7 @@
   "type": "module",
   "main": "./dist/rich-note.es.js",
   "module": "./dist/rich-note.es.js",
+  "types": "./dist/rich-note.d.ts",
   "license": "MIT",
   "scripts": {
     "dev": "vite",
