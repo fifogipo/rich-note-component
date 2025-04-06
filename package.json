@@ -1,0 +1,37 @@
+{
+  "name": "rich-note-component",
+  "description": "A component to make simple notes",
+  "author": "Federico Gasperoni",
+  "private": false,
+  "version": "1.0.0",
+  "type": "module",
+  "main": "./dist/rich-note.es.js",
+  "module": "./dist/rich-note.es.js",
+  "license": "MIT",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc && vite build"
+  },
+  "devDependencies": {
+    "prettier": "^3.5.3",
+    "typescript": "~5.7.2",
+    "vite": "^6.2.0"
+  },
+  "peerDependencies": {
+    "lit": "^3.2.1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/fifogipo/rich-note-component.git"
+  },
+  "bugs": {
+    "url": "https://github.com/fifogipo/rich-note-component/issues"
+  },
+  "homepage": "https://github.com/fifogipo/rich-note-component#readme",
+  "keywords": [
+    "note",
+    "toolbar",
+    "lit",
+    "text-editor"
+  ]
+}
