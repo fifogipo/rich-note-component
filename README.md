@@ -44,7 +44,7 @@ Once imported, you can use the component directly in your HTML markup:
 <head>
   <meta charset="UTF-8">
   <title>rich-note-component Demo</title>
-  <script type="module" src="./path/to/your-bundle.js"></script>
+  <script type="module" src="./path/to/rich-note.es.js"></script>
 </head>
 <body>
   <rich-note-component></rich-note-component>
