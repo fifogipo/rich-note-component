@@ -35,6 +35,11 @@
     "lit",
     "text-editor"
   ],
+  "files": [
+    "dist",
+    "README.md",
+    "LICENSE"
+  ],
   "dependencies": {
     "vite-plugin-dts": "^4.5.3"
   }
