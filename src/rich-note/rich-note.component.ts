@@ -17,7 +17,7 @@ import underlineIcon from "/icons/underline.svg?raw";
 import styles from "./rich-note.component.css?inline";
 
 @customElement("rich-note-component")
-export default class RichNoteComponent extends LitElement {
+export class RichNoteComponent extends LitElement {
   static styles = css`
     ${unsafeCSS(styles)}
   `;
@@ -274,5 +274,11 @@ export default class RichNoteComponent extends LitElement {
         @input=${this.handleEditorInput}
       ></div>
     `;
+  }
+}
+
+declare global {
+  interface HTMLElementTagNameMap {
+    'rich-note-component': RichNoteComponent
   }
 }
