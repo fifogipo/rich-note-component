@@ -109,4 +109,4 @@ Bug reports and feature suggestions are always welcome. To contribute:
 
 ## License
 
-This project is distributed under the MPL 2.0 License. See the [LICENSE](./LICENSE) file for more details.
+This project is distributed under the MIT License. See the [LICENSE](./LICENSE) file for more details.
