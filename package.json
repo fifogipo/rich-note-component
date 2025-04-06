@@ -7,9 +7,12 @@
   "type": "module",
   "main": "dist/rich-note-component.js",
   "module": "dist/rich-note-component.js",
-  "types": "dist/rich-note.component.d.ts",
+  "types": "dist/index.d.ts",
   "exports": {
-    ".": "./dist/rich-note-component.js"
+    ".": {
+      "import": "./dist/rich-note-component.js",
+      "types": "./dist/index.d.ts"
+    }
   },
   "license": "MIT",
   "scripts": {
