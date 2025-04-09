@@ -1,4 +1,4 @@
-import { LitElement, css, html, unsafeCSS } from "lit";
+import { LitElement, css, html, unsafeCSS, PropertyValues } from "lit";
 import { customElement, property, query, state } from "lit/decorators.js";
 import { classMap } from "lit/directives/class-map.js";
 import { unsafeHTML } from "lit/directives/unsafe-html.js";
@@ -24,7 +24,7 @@ export class RichNoteComponent extends LitElement {
 
   // Input properties
   @property({ type: String }) title: string = "";
-  @property({ type: String }) content: string = "";
+  @property({ type: String }) content: string = "dscscd";
   @property({ type: Boolean }) disableLeftBorder: boolean = false;
 
   // Internal DOM selectors
@@ -43,7 +43,13 @@ export class RichNoteComponent extends LitElement {
   };
 
   // Lifecycle: update component when properties change
-  updated(changedProperties: Map<string, any>) {
+  protected firstUpdated(changedProperties: PropertyValues) {
+    if (changedProperties.has("content")) {
+      this.editorRef.innerHTML = this.content;
+    }
+  }
+
+  protected updated(changedProperties: Map<string, any>) {
     if (changedProperties.has("disableLeftBorder")) {
       this.style.borderLeft = this.disableLeftBorder ? "none" : "1px solid var(--border-divider)";
       this.toolbarRef.style.borderRadius = this.disableLeftBorder ? "0 8px 0 0" : "8px 8px 0 0";
@@ -269,7 +275,6 @@ export class RichNoteComponent extends LitElement {
         id="editor"
         contenteditable="true"
         data-placeholder="Write here the note..."
-        .innerHTML=${this.content}
         @drop=${this.handleImageDrop}
         @dragover=${(e: DragEvent) => e.preventDefault()}
         @input=${this.handleEditorInput}
