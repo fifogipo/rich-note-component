@@ -43,6 +43,11 @@ export class RichNoteComponent extends LitElement {
   };
 
   // Lifecycle: update component when properties change
+
+  firstUpdated() {
+    this.editorRef.innerHTML = this.content;
+  }
+
   protected updated(changedProperties: PropertyValues) {
     if (changedProperties.has("disableLeftBorder")) {
       this.style.borderLeft = this.disableLeftBorder ? "none" : "1px solid var(--border-divider)";
@@ -50,7 +55,9 @@ export class RichNoteComponent extends LitElement {
     }
 
     if (changedProperties.has("content")) {
-      this.editorRef.innerHTML = this.content;
+      if (document.activeElement !== this.editorRef && this.editorRef.innerHTML !== this.content) {
+        this.editorRef.innerHTML = this.content;
+      }
     }
   }
 
