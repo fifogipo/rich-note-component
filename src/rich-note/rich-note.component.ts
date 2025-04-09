@@ -55,7 +55,9 @@ export class RichNoteComponent extends LitElement {
     }
 
     if (changedProperties.has("content")) {
-      if (document.activeElement !== this.editorRef && this.editorRef.innerHTML !== this.content) {
+      if (document.activeElement === this.editorRef) {
+        this.updateContentPreservingSelection(this.content);
+      } else if (this.editorRef.innerHTML !== this.content) {
         this.editorRef.innerHTML = this.content;
       }
     }
@@ -173,6 +175,21 @@ export class RichNoteComponent extends LitElement {
       callback(e.target?.result as string);
     };
     reader.readAsDataURL(file);
+  }
+
+  private updateContentPreservingSelection(newContent: string) {
+    const selection = window.getSelection();
+    const range =
+      selection && selection.rangeCount > 0
+        ? selection.getRangeAt(0)
+        : null;
+
+    this.editorRef.innerHTML = newContent;
+
+    if (range) {
+      selection?.removeAllRanges();
+      selection?.addRange(range);
+    }
   }
 
   render() {
