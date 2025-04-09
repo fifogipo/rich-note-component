@@ -83,7 +83,10 @@ export class RichNoteComponent extends LitElement {
   }
 
   handleEditorInput() {
-    this.content = this.editorRef.innerHTML;
+    const cleanedContent = this.editorRef.innerHTML.trim();
+    const isEmpty = cleanedContent === "" || cleanedContent === "<br>" || cleanedContent === "<div><br></div>";
+
+    this.content = isEmpty ? "" : cleanedContent;
     this.dispatchEvent(
       new CustomEvent("note-saved", {
         detail: { title: this.title, content: this.content },
