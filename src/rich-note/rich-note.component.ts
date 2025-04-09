@@ -269,7 +269,7 @@ export class RichNoteComponent extends LitElement {
         id="editor"
         contenteditable="true"
         data-placeholder="Write here the note..."
-        .value=${this.content}
+        .innerHTML=${this.content}
         @drop=${this.handleImageDrop}
         @dragover=${(e: DragEvent) => e.preventDefault()}
         @input=${this.handleEditorInput}
