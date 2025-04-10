@@ -33,11 +33,11 @@
   border-radius: 8px;
   max-width: 800px;
   width: 100%;
-  height: calc(100dvh - 2rem);
+  height: 100dvh;
   margin: auto;
 
   .active {
-    background-color: var(--secondary)!important;
+    background-color: var(--secondary) !important;
   }
 
   .toolbar {

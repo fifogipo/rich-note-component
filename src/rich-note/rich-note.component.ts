@@ -25,7 +25,7 @@ export class RichNoteComponent extends LitElement {
   // Input properties
   @property({ type: String }) title: string = "";
   @property({ type: String }) content: string = "";
-  @property({ type: Boolean }) disableLeftBorder: boolean = false;
+  @property({ type: Boolean }) disableBorder: boolean = false;
 
   // Internal DOM selectors
   @query("#editor") editorRef!: HTMLDivElement;
@@ -49,9 +49,10 @@ export class RichNoteComponent extends LitElement {
   }
 
   protected updated(changedProperties: PropertyValues) {
-    if (changedProperties.has("disableLeftBorder")) {
-      this.style.borderLeft = this.disableLeftBorder ? "none" : "1px solid var(--border-divider)";
-      this.toolbarRef.style.borderRadius = this.disableLeftBorder ? "0 8px 0 0" : "8px 8px 0 0";
+    if (changedProperties.has("disableBorder")) {
+      this.style.border = this.disableBorder ? "none" : "1px solid var(--border-divider)";
+      this.style.borderRadius = this.disableBorder ? "0" : "8px";
+      this.toolbarRef.style.borderRadius = this.disableBorder ? "0" : "8px 8px 0 0";
     }
 
     if (changedProperties.has("content")) {
