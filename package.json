@@ -3,7 +3,7 @@
   "description": "A component to make simple notes",
   "author": "Federico Gasperoni",
   "private": false,
-  "version": "1.0.19",
+  "version": "1.0.20",
   "type": "module",
   "main": "dist/rich-note-component.js",
   "module": "dist/rich-note-component.js",
